@@ -1,0 +1,8 @@
+.repoCard {
+    text-decoration: none;
+    color: inherit;
+}
+
+.repoCard:hover {
+    color: inherit;
+}
