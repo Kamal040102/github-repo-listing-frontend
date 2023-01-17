@@ -5,20 +5,25 @@ import UserDetails from "../../Components/UserDetails/UserDetails.component";
 import UserRepos from "../../Components/UserRepos/UserRepos.component";
 import { actions } from "../../redux/index";
 import Loader from "react-fullscreen-loading";
+import Error from "../Error/Error.page";
 
 const Result = () => {
   const params = useParams();
   const disptach = useDispatch();
-  const { loading } = useSelector((state) => state.getUserData);
+  const { loading, error } = useSelector((state) => state.getUserData);
 
   useEffect(() => {
     disptach(actions.fetchUserData(params.username));
   }, []);
 
+  console.log(error);
+
   return (
-    <div className="container d-flex flex-column">
+    <div className="h-100 container d-flex flex-column">
       {loading === null || loading === true ? (
         <Loader loading={true} loaderColor={"#OD6EFD"} />
+      ) : error !== null && loading === false ? (
+        <Error user={params.username} />
       ) : (
         <>
           <Loader loading={false} />

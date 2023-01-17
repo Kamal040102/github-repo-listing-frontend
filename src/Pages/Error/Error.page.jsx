@@ -1,7 +1,7 @@
 import React from "react";
 import { useHref, useNavigate } from "react-router-dom";
 
-const Error = () => {
+const Error = ({ user }) => {
   const page = useHref();
   const navigate = useNavigate();
 
@@ -10,9 +10,15 @@ const Error = () => {
       <h1>
         Error <span className="text-danger">404</span>
       </h1>
-      <h2>
-        Page <span className="text-primary">'{page}'</span> not found
-      </h2>
+      {user ? (
+        <h2>
+          User <span className="text-primary">'{user}'</span> not found
+        </h2>
+      ) : (
+        <h2>
+          Page <span className="text-primary">'{page}'</span> not found
+        </h2>
+      )}
       <button
         className="btn btn-success mt-5"
         onClick={(e) => {
