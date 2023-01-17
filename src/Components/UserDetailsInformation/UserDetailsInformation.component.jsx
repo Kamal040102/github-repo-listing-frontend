@@ -18,7 +18,7 @@ const UserDetailsInformation = () => {
       <h5>{data.bio}</h5>
       <h5>{data.twitter_username}</h5>
       <h5>
-        <a href={data.html_url} target="_blank">
+        <a href={data.html_url} target="_blank" rel="noreferrer">
           {data.html_url}
         </a>
       </h5>

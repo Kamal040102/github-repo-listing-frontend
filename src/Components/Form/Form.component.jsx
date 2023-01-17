@@ -5,7 +5,14 @@ const Form = () => {
   const [username, setUsername] = useState(null);
   const navigate = useNavigate();
   return (
-    <form className="p-5 border rounded">
+    <form
+      className="p-5 border rounded"
+      onSubmit={(e) => {
+        username
+          ? navigate(`/repos/${username}`)
+          : window.alert("Github Username is a required field.");
+      }}
+    >
       <div className="mb-3">
         <label htmlFor="username" className="form-label">
           Github Username
@@ -23,6 +30,7 @@ const Form = () => {
         type="button"
         className="btn btn-success w-100"
         onClick={(e) => {
+          e.preventDefault();
           username
             ? navigate(`/repos/${username}`)
             : window.alert("Github Username is a required field.");

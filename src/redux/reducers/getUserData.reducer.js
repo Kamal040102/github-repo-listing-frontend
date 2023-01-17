@@ -1,5 +1,6 @@
 const initialState = {
     data: {},
+    repoData: [],
     loading: false,
     error: null
 }
@@ -14,8 +15,14 @@ const getUserData = (state = initialState, action) => {
         case "GET_USER_DATA_SUCCESS":
             return {
                 ...state,
-                loading: false,
+                loading: true,
                 data: action.payload
+            }
+        case "GET_USER_REPO_DATA_SUCCESS":
+            return {
+                ...state,
+                loading: false,
+                repoData: action.payload
             }
         case "GET_USER_DATA_FAIL":
             return {
