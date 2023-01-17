@@ -30,6 +30,8 @@ const getUserData = (state = initialState, action) => {
                 loading: false,
                 error: action.payload
             }
+        case "REMOVE_USER_DATA":
+            return initialState;
         default:
             return state;
     }

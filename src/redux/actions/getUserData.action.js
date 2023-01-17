@@ -21,8 +21,17 @@ export const getUserRepoData = (data) => ({
     payload: data
 })
 
+export const removeUserData = () => {
+    return (dispatch) => {
+        dispatch({
+            type: "REMOVE_USER_DATA"
+        })
+    }
+}
+
 export const fetchUserData = (username) => {
     return (dispatch) => {
+        dispatch(getUserDataInitialize())
         axios.get(`${SERVER_URL}/github?user=${username}`).then((res) => {
             dispatch(getUserDataSuccess(res.data.data))
             axios.get(`${SERVER_URL}/github/repos?user=${username}`).then((res) => {
