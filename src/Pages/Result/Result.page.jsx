@@ -16,8 +16,6 @@ const Result = () => {
     disptach(actions.fetchUserData(params.username));
   }, []);
 
-  console.log(error);
-
   return (
     <div className="h-100 container d-flex flex-column">
       {loading === null || loading === true ? (
