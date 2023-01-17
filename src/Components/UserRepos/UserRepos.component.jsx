@@ -14,12 +14,12 @@ const UserRepos = () => {
       {repoData.map((data, key) => {
         return <RepoCard key={key} data={data} />;
       })}
-      <Pagination
+      {/* <Pagination
         {...bootstrap5PaginationPreset}
         current={currentPage}
         total={totalPage}
         onPageChange={setCurrentPage}
-      />
+      /> */}
     </div>
   );
 };
