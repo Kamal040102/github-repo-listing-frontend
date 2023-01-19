@@ -24,6 +24,7 @@ const Form = () => {
           onChange={(e) => {
             setUsername(e.target.value);
           }}
+          placeholder="Enter your github username here"
         />
       </div>
       <button
